@@ -3,114 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Interactive Termux Code Boxes</title>
+    <title>Copy Termux Commands</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background: #f3f4f6;
+            background-color: #f4f4f4;
             display: flex;
-            flex-direction: column;
-            align-items: center;
+            flex-wrap: wrap;
             justify-content: center;
-            height: 100vh;
-        }
-
-        h1 {
-            margin-bottom: 20px;
-            color: #333;
-        }
-
-        .box-container {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
             gap: 20px;
-        }
-
-        .box {
-            background: #4CAF50;
-            color: #fff;
-            font-weight: bold;
             padding: 20px;
-            border-radius: 10px;
+        }
+        .command-box {
+            background: #fff;
+            border: 2px solid #007bff;
+            padding: 20px;
             text-align: center;
+            width: 200px;
+            border-radius: 10px;
             cursor: pointer;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: transform 0.2s ease-in-out;
         }
-
-        .box:hover {
-            transform: scale(1.05);
-        }
-
-        .message {
-            margin-top: 20px;
-            font-size: 16px;
-            color: #28a745;
+        .command-box:hover {
+            background: #007bff;
+            color: #fff;
         }
     </style>
-</head>
-<body>
-    <h1>Interactive Termux Code Boxes</h1>
-    <div class="box-container">
-        <div class="box" onclick="copyCode('Heartbeat scanner')">Box 1: Put Box Name</div>
-        <div class="box" onclick="copyCode('IP or DOMAIN attacking tool')">Box 2: Put Box Name</div>
-        <div class="box" onclick="copyCode('Phishing Url detector')">Box 3: Put Box Name</div>
-        <div class="box" onclick="copyCode('MITM attacking tool')">Box 4: Put Box Name</div>
-        <div class="box" onclick="copyCode('Killshot pentesting framework')">Box 5: Put Box Name</div>
-        <div class="box" onclick="copyCode('IDN homograph attack tool')">Box 6: Put Box Name</div>
-        <div class="box" onclick="copyCode('Ip/number to location hack')">Box 7: Put Box Name</div>
-    </div>
-    <div class="message" id="message"></div>
-
     <script>
-        // Termux codes for each box
-        const termuxCodes = {
-            termux_code_1: 'git clone https://github.com/TechnicalMujeeb/HeartBleed.git 
-cd HeartBleed 
-chmod +x * 
-./install.sh',
-            termux_code_2: 'apt update -y && apt upgrade -y && apt install git python2 -y && git clone https://github.com/Bhai4You/Ip-Attack && cd Ip-Attack && bash requirement.sh && python2 ip-attack.py',
-            termux_code_3: 'git clone https://github.com/UndeadSec/checkURL.git
-cd checkURL
-python3 cd checkURL',
-            termux_code_4: 'git clone https://github.com/f4rih/websploit.git
-cd websploit
-python setup.py install',
-            termux_code_5: 'git clone https://github.com/bahaabdelwahed/killshot
-cd killshot
-ruby setup.rb 
-ruby killshot.rb',
-            termux_code_6: 'git clone https://github.com/UndeadSec/EvilURL.git
-pip install python-nmap python-whois
-cd EvilURL
-python3 evilurl.py',
-            termux_code_7: 'apt update
-apt upgrade -y
-pkg install python
-pkg install git
-git clone https://github.com/arjunrajp/toxicipHack
-cd toxicipHack
-chmod +x *
-ls
-python main.py',
-        };
-
-        function copyCode(codeKey) {
-            const code = termuxCodes[codeKey];
-            navigator.clipboard.writeText(code)
-                .then(() => {
-                    const messageDiv = document.getElementById('message');
-                    messageDiv.textContent = 'Code Copied!';
-                    setTimeout(() => {
-                        messageDiv.textContent = '';
-                    }, 2000);
-                })
-                .catch(err => {
-                    console.error('Failed to copy text: ', err);
-                });
+        function copyCommand(command) {
+            navigator.clipboard.writeText(command).then(() => {
+                alert("Command copied: " + command);
+            });
         }
     </script>
+</head>
+<body>
+    <div class="command-box" onclick="copyCommand('apt update && apt upgrade -y')">Update & Upgrade</div>
+    <div class="command-box" onclick="copyCommand('pkg install git')">Install Git</div>
+    <div class="command-box" onclick="copyCommand('termux-setup-storage')">Setup Storage</div>
+    <!-- Add more boxes as needed -->
 </body>
 </html>
