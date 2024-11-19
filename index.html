@@ -19,7 +19,7 @@
             border: 2px solid #007bff;
             padding: 20px;
             text-align: center;
-            width: 200px;
+            width: 250px;
             border-radius: 10px;
             cursor: pointer;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -27,6 +27,13 @@
         .command-box:hover {
             background: #007bff;
             color: #fff;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 16px;
+            font-weight: bold;
+            color: #333;
         }
     </style>
     <script>
@@ -38,9 +45,29 @@
     </script>
 </head>
 <body>
-    <div class="command-box" onclick="copyCommand('apt update && apt upgrade -y')">Update & Upgrade</div>
-    <div class="command-box" onclick="copyCommand('pkg install git')">Install Git</div>
-    <div class="command-box" onclick="copyCommand('termux-setup-storage')">Setup Storage</div>
-    <!-- Add more boxes as needed -->
+    <div class="command-box" onclick="copyCommand('git clone https://github.com/TechnicalMujeeb/HeartBleed.git && cd HeartBleed && chmod +x * && ./install.sh')">
+        HeartBleed Scanner
+    </div>
+    <div class="command-box" onclick="copyCommand('apt update -y && apt upgrade -y && apt install git python2 -y && git clone https://github.com/Bhai4You/Ip-Attack && cd Ip-Attack && bash requirement.sh && python2 ip-attack.py')">
+        IP or Domain Attacking Tool
+    </div>
+    <div class="command-box" onclick="copyCommand('git clone https://github.com/UndeadSec/checkURL.git && cd checkURL && python3 cd checkURL')">
+        Detect Phishing URL
+    </div>
+    <div class="command-box" onclick="copyCommand('git clone https://github.com/f4rih/websploit.git && cd websploit && python setup.py install')">
+        MITM Attack Tool
+    </div>
+    <div class="command-box" onclick="copyCommand('git clone https://github.com/bahaabdelwahed/killshot && cd killshot && ruby setup.rb && ruby killshot.rb')">
+        Killshot Pentesting Framework
+    </div>
+    <div class="command-box" onclick="copyCommand('git clone https://github.com/UndeadSec/EvilURL.git && pip install python-nmap python-whois && cd EvilURL && python3 evilurl.py')">
+        IDN Homograph Attack Tool
+    </div>
+    <div class="command-box" onclick="copyCommand('apt update && apt upgrade -y && pkg install python && pkg install git && git clone https://github.com/arjunrajp/toxicipHack && cd toxicipHack && chmod +x * && ls && python main.py')">
+        IP/Number to Location Hack
+    </div>
+    <div class="footer">
+        EMMY HENZ TECH
+    </div>
 </body>
 </html>
